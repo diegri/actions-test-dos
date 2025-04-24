@@ -1,0 +1,23 @@
+# Nombre del workflow (opcional, pero útil para identificarlo en GitHub)
+name: Ejemplo simple
+
+# Evento que activa el workflow (en este caso, cuando hay un push en la rama main)
+on:
+  push:
+    branches:
+      - main
+
+# Definición de los jobs (puede haber uno o varios)
+jobs:
+  mi-job:
+    # Especifica el tipo de máquina en la que se ejecutará el job (runner)
+    runs-on: ubuntu-latest
+
+    # Lista de pasos a ejecutar dentro del job
+    steps:
+      # Usa una acción predefinida para clonar el repositorio en el runner
+      - name: Clonar
+        uses: actions/checkout@v4     
+      # Ejecuta un comando directamente en la terminal del runner
+      - name: Mensaje
+        run: echo "Hola, este es un primer workflow en GitHub Actions"
